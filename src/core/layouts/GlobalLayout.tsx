@@ -14,11 +14,11 @@ export const GlobalLayout = () => {
         </div>
       </header>
 
-      <main className="max-w-screen-2xl max-xl: mt-10 p-5">
+      <main className="max-w-screen-2xl mx-auto mt-10 p-5">
         <Outlet />
       </main>
 
-      <footer className="py-5">Todos los derechos reservados {new Date().getFullYear()}</footer>
+      <footer className="py-5 text-center">Todos los derechos reservados {new Date().getFullYear()}</footer>
     </>
   );
 };

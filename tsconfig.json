@@ -24,7 +24,7 @@
       "@styles/*": ["./src/assets/styles/*"],
       "@icons/*": ["./src/assets/media/icons/*"],
       "@project/*": ["./src/modules/project/*"],
-      "@home/*": ["./src/modules/home/*"]
+      "@dashboard/*": ["./src/modules/dashboard/*"]
     }
   },
   "include": ["src"],
