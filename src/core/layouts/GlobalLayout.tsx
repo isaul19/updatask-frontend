@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { Logo } from "@core/components";
+import { Logo, NavMenu } from "@core/components";
 
 export const GlobalLayout = () => {
   return (
@@ -10,11 +10,15 @@ export const GlobalLayout = () => {
             <Logo />
           </div>
 
-          <nav></nav>
+          <NavMenu />
         </div>
       </header>
 
-      <Outlet />
+      <main className="max-w-screen-2xl max-xl: mt-10 p-5">
+        <Outlet />
+      </main>
+
+      <footer className="py-5">Todos los derechos reservados {new Date().getFullYear()}</footer>
     </>
   );
 };
