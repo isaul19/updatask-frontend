@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { ProjectDraft } from "@project/project.types";
 import { Button } from "@core/lib/shadcn/ui";
 import { CreateOrUpdateProjectInputs } from "@project/components/input-groups";
+import { useCreateProject } from "@api/project";
 
 export const CreateProjectPage = () => {
   const {
@@ -12,8 +13,10 @@ export const CreateProjectPage = () => {
     formState: { errors },
   } = useForm<ProjectDraft>();
 
-  const handleCreateProject = (data: ProjectDraft) => {
-    console.log(data);
+  const createProject = useCreateProject();
+
+  const handleCreateProject = async (data: ProjectDraft) => {
+    await createProject.mutateAsync(data);
   };
 
   return (

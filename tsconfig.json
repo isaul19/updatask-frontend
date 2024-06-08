@@ -21,7 +21,9 @@
     "noFallthroughCasesInSwitch": true,
     "paths": {
       "@core/*": ["./src/core/*"],
+      "@api/*": ["./src/api/*"],
       "@lib/*": ["./src/core/lib/*"],
+      "@config/*": ["./src/core/config/*"],
       "@styles/*": ["./src/assets/styles/*"],
       "@icons/*": ["./src/assets/media/icons/*"],
       "@project/*": ["./src/modules/project/*"],
