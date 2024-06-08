@@ -13,7 +13,7 @@ export const Application = () => {
       <QueryClientProvider client={queryClient}>
         <RouterProvider router={coreRouter} />
       </QueryClientProvider>
-      <ToastContainer theme="colored" />
+      <ToastContainer theme="colored" pauseOnFocusLoss={false} pauseOnHover={false} />
     </>
   );
 };
