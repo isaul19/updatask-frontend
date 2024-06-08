@@ -1,16 +1,20 @@
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
-import { CreateProjectDraft } from "@project/project.types";
+import { ProjectDraft } from "@project/project.types";
+import { Button } from "@core/lib/shadcn/ui";
+import { CreateOrUpdateProjectInputs } from "@project/components/input-groups";
 
 export const CreateProjectPage = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<CreateProjectDraft>();
+  } = useForm<ProjectDraft>();
 
-  const handleCreateProject = (data: CreateProjectDraft) => {};
+  const handleCreateProject = (data: ProjectDraft) => {
+    console.log(data);
+  };
 
   return (
     <>
@@ -28,40 +32,15 @@ export const CreateProjectPage = () => {
         </nav>
 
         <form
-          className="mt-10 bg-white shadow-lg p-10 rounded-lg flex flex-col gap-5"
+          className="mt-10 bg-white shadow-lg p-10 rounded-lg flex flex-col gap-8"
           onSubmit={handleSubmit(handleCreateProject)}
           noValidate
         >
-          <input
-            placeholder="Nombre de cliente"
-            {...register("clientName", {
-              minLength: 2,
-              required: true,
-            })}
-          />
+          <CreateOrUpdateProjectInputs register={register} errors={errors} />
 
-          <input
-            placeholder="Nombre del proyecto"
-            {...register("projectName", {
-              minLength: 2,
-              required: true,
-            })}
-          />
-
-          <input
-            placeholder="Descripción"
-            {...register("description", {
-              minLength: 2,
-              required: true,
-            })}
-          />
-
-          <button
-            type="submit"
-            className="bg-fuchsia-600 w-full p-3 text-white uppercase font-bold cursor-pointer transition-colors"
-          >
+          <Button type="submit" size="lg">
             Crear Proyecto
-          </button>
+          </Button>
         </form>
       </div>
     </>
