@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 import { ProjectDraft } from "@project/project.types";
@@ -13,10 +13,12 @@ export const CreateProjectPage = () => {
     formState: { errors },
   } = useForm<ProjectDraft>();
 
+  const navigate = useNavigate();
   const createProject = useCreateProject();
 
   const handleCreateProject = async (data: ProjectDraft) => {
     await createProject.mutateAsync(data);
+    navigate("/project");
   };
 
   return (
@@ -26,11 +28,8 @@ export const CreateProjectPage = () => {
         <p className="text-2xl font-light text-gray-500 mt-5">Llena el siguiente formulario para crear un proyecto</p>
 
         <nav className="my-5">
-          <Link
-            className="bg-primary hover:opacity-90 px-10 py-3 text-white text-xl font-bold cursor-pointer transition-colors"
-            to="/project"
-          >
-            Volver a Proyectos
+          <Link to="/project">
+            <Button size="lg">Volver a Proyectos</Button>
           </Link>
         </nav>
 
@@ -41,8 +40,8 @@ export const CreateProjectPage = () => {
         >
           <CreateOrUpdateProjectInputs register={register} errors={errors} />
 
-          <Button type="submit" size="lg">
-            Crear Proyecto
+          <Button variant="primary" type="submit" size="lg" disabled={createProject.isLoading}>
+            {createProject.isLoading ? "Creando..." : "Crear Proyecto"}
           </Button>
         </form>
       </div>
