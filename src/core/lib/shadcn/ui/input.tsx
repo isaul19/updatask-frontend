@@ -18,7 +18,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(({ className, error
         ref={ref}
         {...props}
       />
-      <div>{errorMessage && <p className="bg-red-400 py-2 text-white text-center mt-2 text-sm">{errorMessage}</p>}</div>
+      <div>{errorMessage && <p className="bg-red-400 py-2 text-white text-center mt-3 text-sm">{errorMessage}</p>}</div>
     </>
   );
 });
