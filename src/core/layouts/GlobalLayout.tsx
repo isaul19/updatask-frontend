@@ -5,7 +5,7 @@ export const GlobalLayout = () => {
   return (
     <>
       <header className="bg-gray-800 py-5">
-        <div className="max-w-screen-2xl mx-auto flex flex-col justify-between items-center lg:flex-row">
+        <div className="max-w-screen-2xl w-[95%] mx-auto flex flex-col justify-between items-center lg:flex-row">
           <div className="w-64">
             <Logo />
           </div>
