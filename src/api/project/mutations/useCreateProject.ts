@@ -1,7 +1,6 @@
 import { useMutation } from "react-query";
 import { toast } from "react-toastify";
-
-import { createProject } from "../project.service";
+import { createProject } from "../service.project";
 
 export const useCreateProject = () => {
   const mutation = useMutation({
