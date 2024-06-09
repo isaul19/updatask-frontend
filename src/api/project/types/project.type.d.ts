@@ -1,12 +1,11 @@
 export interface Project {
+  _id: string;
   projectName: string;
   clientName: string;
   description: string;
   tasks: string[];
 }
 
-export interface Task {
-  name: string;
-  description: string;
-  project: string;
+export interface ProjectWithTasks extends Project {
+  tasks: Task[];
 }

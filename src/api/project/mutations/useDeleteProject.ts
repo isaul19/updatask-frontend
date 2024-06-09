@@ -1,8 +1,8 @@
 import { useMutation } from "react-query";
 import { toast } from "react-toastify";
 
-import { deleteProject } from "../service.project";
 import { refreshProjectQuery } from "../config.project";
+import { deleteProject } from "../services";
 
 export const useDeleteProject = (projectId: string) => {
   const mutation = useMutation({

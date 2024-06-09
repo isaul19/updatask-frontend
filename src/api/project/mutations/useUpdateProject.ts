@@ -2,8 +2,8 @@ import { useMutation } from "react-query";
 import { toast } from "react-toastify";
 
 import { ProjectDraft } from "@project/project.types";
-import { updateProject } from "../service.project";
 import { refreshProjectQuery } from "../config.project";
+import { updateProject } from "../services";
 
 export const useUpdateProject = (projectId: string) => {
   const mutation = useMutation({

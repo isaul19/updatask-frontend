@@ -2,10 +2,15 @@ import { uptaskBackend } from "@core/lib/axios.lib";
 import { ProjectDraft } from "@project/project.types";
 
 import { Response, ResponseMessage } from "@api/types.api";
-import { Project } from "@api/project/types.project";
+import { Project, ProjectWithTasks } from "../types/project.type";
 
 export const createProject = async (data: ProjectDraft): Promise<ResponseMessage> => {
   const response = await uptaskBackend.post<ResponseMessage>("/project", data);
+  return response.data;
+};
+
+export const getProjectById = async (projectId: string): Promise<Response<ProjectWithTasks>> => {
+  const response = await uptaskBackend.get<Response<Project>>(`/project/${projectId}`);
   return response.data;
 };
 
