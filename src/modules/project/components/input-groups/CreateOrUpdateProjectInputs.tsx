@@ -12,21 +12,6 @@ export const CreateOrUpdateProjectInputs = ({ register, errors }: Props) => {
   return (
     <>
       <Label>
-        Nombre del Cliente
-        <Input
-          placeholder="Ingresa el nombre del cliente"
-          {...register("clientName", {
-            minLength: {
-              value: 2,
-              message: "El Nombre del Cliente debe tener al menos 2 caracteres",
-            },
-            required: "El Nombre del Cliente es requerido",
-          })}
-          errorMessage={errors.clientName?.message}
-        />
-      </Label>
-
-      <Label>
         Nombre del proyecto
         <Input
           placeholder="Ingresa el nombre del proyecto"
@@ -38,6 +23,21 @@ export const CreateOrUpdateProjectInputs = ({ register, errors }: Props) => {
             required: "El Nombre del Proyecto es requerido",
           })}
           errorMessage={errors.projectName?.message}
+        />
+      </Label>
+
+      <Label>
+        Nombre del Cliente
+        <Input
+          placeholder="Ingresa el nombre del cliente"
+          {...register("clientName", {
+            minLength: {
+              value: 2,
+              message: "El Nombre del Cliente debe tener al menos 2 caracteres",
+            },
+            required: "El Nombre del Cliente es requerido",
+          })}
+          errorMessage={errors.clientName?.message}
         />
       </Label>
 
