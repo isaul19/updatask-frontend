@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import { AxiosError } from "axios";
 
 import { createProject } from "../services";
-import { PROJECTS_QUERY_KEY } from "../config.project";
+import { PROJECTS_QUERY_KEY } from "../constants.project";
 
 export const useCreateProject = () => {
   const client = useQueryClient();

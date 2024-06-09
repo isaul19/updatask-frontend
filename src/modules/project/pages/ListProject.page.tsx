@@ -1,7 +1,12 @@
-import { Button } from "@core/lib/shadcn/ui";
 import { Link } from "react-router-dom";
 
+import { Button } from "@core/lib/shadcn/ui";
+import { useListProjects } from "@api/project";
+import { ProjectCardList } from "@project/components/ProjectCardList";
+
 export const ListProjectPage = () => {
+  const { projects } = useListProjects();
+
   return (
     <>
       <h1 className="text-5xl font-black">Mis proyectos</h1>
@@ -12,6 +17,8 @@ export const ListProjectPage = () => {
           <Button size="lg">Nuevo Proyecto</Button>
         </Link>
       </nav>
+
+      <ProjectCardList projects={projects} />
     </>
   );
 };

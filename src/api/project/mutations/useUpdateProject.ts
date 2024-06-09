@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import { AxiosError } from "axios";
 
 import { ProjectDraft } from "@project/project.types";
-import { PROJECTS_QUERY_KEY, PROJECT_QUERY_KEY } from "../config.project";
+import { PROJECTS_QUERY_KEY, PROJECT_QUERY_KEY } from "../constants.project";
 import { updateProject } from "../services";
 
 export const useUpdateProject = (projectId: string) => {

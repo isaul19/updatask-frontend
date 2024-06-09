@@ -1,5 +1,7 @@
 import { RouterProvider } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
+
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -12,6 +14,7 @@ export const Application = () => {
     <>
       <QueryClientProvider client={queryClient}>
         <RouterProvider router={coreRouter} />
+        <ReactQueryDevtools />
       </QueryClientProvider>
       <ToastContainer theme="colored" pauseOnFocusLoss={false} pauseOnHover={false} />
     </>
