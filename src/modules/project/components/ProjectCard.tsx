@@ -16,7 +16,10 @@ export const ProjectCard = ({ project }: Props) => {
     <li key={project._id} className="flex justify-between gap-x-6 px-5 py-10">
       <div className="flex min-w-0 gap-x-4">
         <div className="min-w-0 flex-auto space-y-2">
-          <Link to={``} className="text-gray-600 cursor-pointer hover:underline text-3xl font-bold">
+          <Link
+            to={`/project/show/${project._id}`}
+            className="text-gray-600 cursor-pointer hover:underline text-3xl font-bold"
+          >
             {project.projectName}
           </Link>
           <p className="text-sm text-gray-400">Cliente: {project.clientName}</p>
