@@ -1,15 +1,18 @@
-import { useMutation } from "react-query";
+import { useMutation, useQueryClient } from "react-query";
 import { toast } from "react-toastify";
 import { AxiosError } from "axios";
 
-import { refreshProjectQuery } from "../config.project";
 import { deleteProject } from "../services";
+import { PROJECTS_QUERY_KEY } from "../config.project";
 
 export const useDeleteProject = (projectId: string) => {
+  const client = useQueryClient();
   const mutation = useMutation({
     mutationFn: () => deleteProject(projectId),
     onSuccess: () => {
-      refreshProjectQuery(projectId);
+      client.invalidateQueries({
+        queryKey: [PROJECTS_QUERY_KEY],
+      });
       toast.success("Proyecto eliminado exitosamente");
     },
     onError: (error) => {

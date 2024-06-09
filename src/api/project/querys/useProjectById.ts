@@ -6,7 +6,7 @@ import { PROJECT_QUERY_KEY } from "../config.project";
 
 export const useProjectById = (projectId?: string) => {
   const project = useQuery({
-    queryKey: [PROJECT_QUERY_KEY, projectId],
+    queryKey: [PROJECT_QUERY_KEY, projectId!],
     queryFn: () => getProjectById(projectId!),
     enabled: !!projectId,
     onError: () => {

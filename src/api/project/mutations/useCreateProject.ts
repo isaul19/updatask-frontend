@@ -1,15 +1,18 @@
-import { useMutation } from "react-query";
+import { useMutation, useQueryClient } from "react-query";
 import { toast } from "react-toastify";
 import { AxiosError } from "axios";
 
-import { refreshProjectQuery } from "../config.project";
 import { createProject } from "../services";
+import { PROJECTS_QUERY_KEY } from "../config.project";
 
 export const useCreateProject = () => {
+  const client = useQueryClient();
   const mutation = useMutation({
     mutationFn: createProject,
     onSuccess: () => {
-      refreshProjectQuery();
+      client.invalidateQueries({
+        queryKey: [PROJECTS_QUERY_KEY],
+      });
       toast.success("Proyecto creado exitosamente");
     },
     onError: (error) => {
