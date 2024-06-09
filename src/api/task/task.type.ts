@@ -5,4 +5,4 @@ export interface Task {
   project: string;
 }
 
-export interface TaskDraft extends Pick<Task, "description" | "name" | "project"> {}
+export interface TaskDraft extends Pick<Task, "description" | "name"> {}

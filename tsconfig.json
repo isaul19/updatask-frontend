@@ -27,6 +27,7 @@
       "@styles/*": ["./src/assets/styles/*"],
       "@icons/*": ["./src/assets/media/icons/*"],
       "@project/*": ["./src/modules/project/*"],
+      "@task/*": ["./src/modules/task/*"],
       "@dashboard/*": ["./src/modules/dashboard/*"]
     }
   },
