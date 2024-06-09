@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import { Menu, MenuButton, MenuItem, MenuItems, Transition } from "@headlessui/react";
 import { EllipsisVerticalIcon } from "@heroicons/react/20/solid";
-import { Project } from "@api/project/types";
+import { Project } from "@api/project";
 
 interface Props {
   project: Project;

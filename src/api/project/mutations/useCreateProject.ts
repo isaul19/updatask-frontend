@@ -2,8 +2,8 @@ import { useMutation, useQueryClient } from "react-query";
 import { toast } from "react-toastify";
 import { AxiosError } from "axios";
 
-import { createProject } from "../services";
 import { PROJECTS_QUERY_KEY } from "../constants.project";
+import { createProject } from "../project.service";
 
 export const useCreateProject = () => {
   const client = useQueryClient();

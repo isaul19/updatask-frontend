@@ -2,7 +2,7 @@ import { useQuery } from "react-query";
 import { toast } from "react-toastify";
 
 import { PROJECTS_QUERY_KEY } from "../constants.project";
-import { listProjects } from "../services";
+import { listProjects } from "../project.service";
 
 export const useListProjects = () => {
   const query = useQuery({

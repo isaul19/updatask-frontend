@@ -2,8 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 import { Button } from "@core/lib/shadcn/ui";
-import { useCreateProject } from "@api/project";
-import { ProjectDraft } from "@project/project.types";
+import { ProjectDraft, useCreateProject } from "@api/project";
 import { CreateOrUpdateProjectInputs } from "@project/components/input-groups";
 
 export const CreateProjectForm = () => {

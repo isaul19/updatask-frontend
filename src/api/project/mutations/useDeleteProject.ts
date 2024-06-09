@@ -2,8 +2,8 @@ import { useMutation, useQueryClient } from "react-query";
 import { toast } from "react-toastify";
 import { AxiosError } from "axios";
 
-import { deleteProject } from "../services";
 import { PROJECTS_QUERY_KEY } from "../constants.project";
+import { deleteProject } from "../project.service";
 
 export const useDeleteProject = (projectId: string) => {
   const client = useQueryClient();

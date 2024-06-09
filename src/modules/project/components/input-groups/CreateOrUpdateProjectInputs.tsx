@@ -1,7 +1,7 @@
 import { FieldErrors, UseFormRegister } from "react-hook-form";
 
 import { Input, Label, Textarea } from "@core/lib/shadcn/ui";
-import { ProjectDraft } from "@project/project.types";
+import { ProjectDraft } from "@api/project";
 
 interface Props {
   register: UseFormRegister<ProjectDraft>;

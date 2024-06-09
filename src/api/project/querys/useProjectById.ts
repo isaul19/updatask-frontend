@@ -1,8 +1,8 @@
 import { useQuery } from "react-query";
 import { toast } from "react-toastify";
 
-import { getProjectById } from "../services";
 import { PROJECT_QUERY_KEY } from "../constants.project";
+import { getProjectById } from "../project.service";
 
 export const useProjectById = (projectId?: string) => {
   const project = useQuery({

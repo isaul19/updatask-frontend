@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { Project } from "@api/project/types";
 import { ProjectCard } from "./ProjectCard";
+import { Project } from "@api/project";
 
 interface Props {
   projects: Project[];

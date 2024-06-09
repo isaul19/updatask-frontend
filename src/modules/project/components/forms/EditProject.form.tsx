@@ -1,11 +1,9 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
-import { useUpdateProject } from "@api/project";
-import { ProjectWithTasks } from "@api/project/types";
 import { Button } from "@core/lib/shadcn/ui";
+import { ProjectDraft, ProjectWithTasks, useUpdateProject } from "@api/project";
 import { CreateOrUpdateProjectInputs } from "@project/components/input-groups";
-import { ProjectDraft } from "@project/project.types";
 
 interface Props {
   project: ProjectWithTasks;
