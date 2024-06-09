@@ -1,5 +1,5 @@
 import { uptaskBackend } from "@core/lib/axios.lib";
-import { Response, ResponseMessage } from "@api/types.api";
+import { Response, ResponseMessage } from "@api/updatask-responses.type";
 import { Task, TaskDraft } from "./task.type";
 
 export const listTasks = async (projectId: string): Promise<Response<Task[]>> => {
