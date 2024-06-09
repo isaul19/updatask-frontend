@@ -3,13 +3,15 @@ import { Link } from "react-router-dom";
 
 import { Menu, MenuButton, MenuItem, MenuItems, Transition } from "@headlessui/react";
 import { EllipsisVerticalIcon } from "@heroicons/react/20/solid";
-import { Project } from "@api/project";
+import { Project, useDeleteProject } from "@api/project";
 
 interface Props {
   project: Project;
 }
 
 export const ProjectCard = ({ project }: Props) => {
+  const deleteProject = useDeleteProject(project._id);
+
   return (
     <li key={project._id} className="flex justify-between gap-x-6 px-5 py-10">
       <div className="flex min-w-0 gap-x-4">
@@ -48,7 +50,13 @@ export const ProjectCard = ({ project }: Props) => {
                 </Link>
               </MenuItem>
               <MenuItem>
-                <button type="button" className="block px-3 py-1 text-sm leading-6 text-red-500" onClick={() => {}}>
+                <button
+                  type="button"
+                  className="block px-3 py-1 text-sm leading-6 text-red-500"
+                  onClick={() => {
+                    deleteProject.mutate();
+                  }}
+                >
                   Eliminar Proyecto
                 </button>
               </MenuItem>
