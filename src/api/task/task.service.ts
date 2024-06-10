@@ -7,6 +7,11 @@ export const listTasks = async (projectId: string): Promise<Response<Task[]>> =>
   return response.data;
 };
 
+export const getTaskById = async (projectId: string, taskId: string): Promise<Response<Task>> => {
+  const response = await uptaskBackend.get<Response<Task>>(`/project/${projectId}/task/${taskId}`);
+  return response.data;
+};
+
 export const createTask = async (projectId: string, task: TaskDraft): Promise<ResponseMessage> => {
   const response = await uptaskBackend.post<ResponseMessage>(`/project/${projectId}/task`, task);
   return response.data;

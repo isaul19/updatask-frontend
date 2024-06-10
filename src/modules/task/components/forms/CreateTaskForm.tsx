@@ -26,12 +26,14 @@ export const CreateTaskForm = () => {
   };
 
   return (
-    <form className="mt-10 flex flex-col gap-10" noValidate onSubmit={handleSubmit(handleCreateTask)}>
-      <CreateOrUpdateTaskInputs register={register} errors={errors} />
+    <>
+      <form className="mt-10 flex flex-col gap-10" noValidate onSubmit={handleSubmit(handleCreateTask)}>
+        <CreateOrUpdateTaskInputs register={register} errors={errors} />
 
-      <Button variant="primary" size="lg" type="submit" disabled={createTask.isLoading}>
-        {createTask.isLoading ? "Guardando..." : "Guardar Tarea"}
-      </Button>
-    </form>
+        <Button variant="primary" size="lg" type="submit" disabled={createTask.isLoading}>
+          {createTask.isLoading ? "Guardando..." : "Guardar Tarea"}
+        </Button>
+      </form>
+    </>
   );
 };
