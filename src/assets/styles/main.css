@@ -7,3 +7,8 @@ body,
 :root {
   @apply h-full;
 }
+
+body {
+  font-family: "Segoe UI", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol,
+    "Noto Color Emoji";
+}
