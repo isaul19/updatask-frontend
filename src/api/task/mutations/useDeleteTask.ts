@@ -1,6 +1,7 @@
 import { useMutation, useQueryClient } from "react-query";
 import { toast } from "react-toastify";
 
+import { PROJECT_QUERY_KEY } from "@api/project";
 import { deleteTask } from "../task.service";
 import { TASKS_QUERY_KEY, TASK_QUERY_KEY } from "../task.constants";
 
@@ -15,11 +16,11 @@ export const useDeleteTask = ({ projectId, taskId }: Params) => {
     mutationFn: () => deleteTask(projectId, taskId),
     onSuccess: () => {
       client.invalidateQueries({
-        queryKey: [TASKS_QUERY_KEY, projectId],
+        queryKey: [PROJECT_QUERY_KEY, projectId, TASKS_QUERY_KEY],
       });
 
       client.removeQueries({
-        queryKey: [TASK_QUERY_KEY, taskId],
+        queryKey: [PROJECT_QUERY_KEY, projectId, TASK_QUERY_KEY, taskId],
       });
 
       toast.success("Tarea Eliminada");

@@ -3,7 +3,7 @@ import { useProjectById } from "@api/project";
 import { Button } from "@core/lib/shadcn/ui";
 import { CreateTaskModal } from "@task/components/modals";
 import { TaskCardList } from "@task/components/TaskCardList";
-import { EditTaskModal } from "@task/components/modals/EditTaskModal";
+import { UpdateTaskModal } from "@task/components/modals";
 import { useListTasks } from "@api/task";
 
 export const ShowProjectPage = () => {
@@ -29,7 +29,7 @@ export const ShowProjectPage = () => {
       <TaskCardList tasks={tasks} />
 
       <CreateTaskModal />
-      <EditTaskModal />
+      <UpdateTaskModal />
     </>
   );
 };

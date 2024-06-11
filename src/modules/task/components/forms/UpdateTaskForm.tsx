@@ -9,9 +9,9 @@ interface Props {
   task: Task;
 }
 
-export const EditTaskForm = ({ task }: Props) => {
+export const UpdateTaskForm = ({ task }: Props) => {
   const updateTask = useUpdateTask({ projectId: task.project, taskId: task._id });
-  const [, setEditTaskId] = useSearchParam("edit-task");
+  const [, setUpdateTaskId] = useSearchParam("update-task");
 
   const {
     register,
@@ -21,7 +21,7 @@ export const EditTaskForm = ({ task }: Props) => {
 
   const handleUpdateTask = async (data: TaskDraft) => {
     await updateTask.mutateAsync(data);
-    setEditTaskId(null);
+    setUpdateTaskId(null);
   };
 
   return (
@@ -30,7 +30,7 @@ export const EditTaskForm = ({ task }: Props) => {
         <CreateOrUpdateTaskInputs register={register} errors={errors} />
 
         <Button variant="primary" size="lg" type="submit" disabled={updateTask.isLoading}>
-          {updateTask.isLoading ? "Editando..." : "Editar Tarea"}
+          {updateTask.isLoading ? "Actualizando..." : "Actualizar Tarea"}
         </Button>
       </form>
     </>

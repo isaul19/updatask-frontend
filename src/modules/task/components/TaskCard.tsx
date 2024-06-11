@@ -51,9 +51,9 @@ export const TaskCard = ({ task }: Props) => {
                   <button
                     type="button"
                     className="block px-3 py-1 text-sm leading-6 text-gray-900"
-                    onClick={() => navigate(`?edit-task=${task._id}`)}
+                    onClick={() => navigate(`?update-task=${task._id}`)}
                   >
-                    Editar Tarea
+                    Actualizar Tarea
                   </button>
                 </MenuItem>
 

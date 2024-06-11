@@ -1,14 +1,16 @@
 import { useQuery } from "react-query";
 import { toast } from "react-toastify";
 
+import { PROJECT_QUERY_KEY } from "@api/project";
 import { TASKS_QUERY_KEY } from "../task.constants";
 import { listTasks } from "../task.service";
 
 export const useListTasks = (projectId?: string) => {
   const query = useQuery({
-    queryKey: [TASKS_QUERY_KEY],
+    queryKey: [PROJECT_QUERY_KEY, projectId, TASKS_QUERY_KEY],
     queryFn: () => listTasks(projectId!),
     enabled: !!projectId,
+    retry: false,
     onError: () => {
       toast.error("Hubo un error al obtener las tareas");
     },

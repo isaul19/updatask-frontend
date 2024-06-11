@@ -3,7 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { GlobalLayout } from "@core/layouts";
 
 import { DashboardPage } from "@dashboard/pages";
-import { CreateProjectPage, ListProjectPage, EditProjectPage, ShowProjectPage } from "@project/pages";
+import { CreateProjectPage, ListProjectPage, UpdateProjectPage, ShowProjectPage } from "@project/pages";
 
 export const coreRouter = createBrowserRouter([
   {
@@ -34,11 +34,11 @@ export const coreRouter = createBrowserRouter([
             ],
           },
           {
-            path: "edit",
+            path: "update",
             children: [
               {
                 path: ":projectId",
-                element: <EditProjectPage />,
+                element: <UpdateProjectPage />,
               },
             ],
           },

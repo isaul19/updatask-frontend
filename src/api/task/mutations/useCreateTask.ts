@@ -1,6 +1,7 @@
 import { useMutation, useQueryClient } from "react-query";
 import { toast } from "react-toastify";
 
+import { PROJECT_QUERY_KEY } from "@api/project";
 import { TaskDraft } from "../task.type";
 import { createTask } from "../task.service";
 import { TASKS_QUERY_KEY } from "../task.constants";
@@ -15,7 +16,7 @@ export const useCreateTask = ({ projectId }: Params) => {
     mutationFn: (data: TaskDraft) => createTask(projectId, data),
     onSuccess: () => {
       client.invalidateQueries({
-        queryKey: [TASKS_QUERY_KEY, projectId],
+        queryKey: [PROJECT_QUERY_KEY, projectId, TASKS_QUERY_KEY],
       });
 
       toast.success("Tarea Creada");

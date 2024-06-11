@@ -1,10 +1,10 @@
 import { Link, Navigate, useParams } from "react-router-dom";
 
 import { Button } from "@core/lib/shadcn/ui";
-import { EditProjectForm } from "@project/components/forms";
+import { UpdateProjectForm } from "@project/components/forms";
 import { useProjectById } from "@api/project";
 
-export const EditProjectPage = () => {
+export const UpdateProjectPage = () => {
   const { projectId } = useParams();
   const { project, projectIsError, projectIsLoading } = useProjectById(projectId);
 
@@ -25,7 +25,7 @@ export const EditProjectPage = () => {
           </Link>
         </nav>
 
-        <EditProjectForm project={project!} />
+        <UpdateProjectForm project={project!} />
       </div>
     </>
   );

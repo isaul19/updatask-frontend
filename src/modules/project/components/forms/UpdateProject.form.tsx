@@ -9,7 +9,7 @@ interface Props {
   project: ProjectWithTasks;
 }
 
-export const EditProjectForm = ({ project }: Props) => {
+export const UpdateProjectForm = ({ project }: Props) => {
   const navigate = useNavigate();
 
   const {

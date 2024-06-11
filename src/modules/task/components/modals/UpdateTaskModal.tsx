@@ -3,28 +3,28 @@ import { useParams } from "react-router-dom";
 
 import { useTaskById } from "@api/task";
 import { useSearchParam } from "@core/hooks";
-import { EditTaskForm } from "../forms/EditTaskForm";
+import { UpdateTaskForm } from "../forms";
 import { Dialog, DialogPanel, DialogTitle, Transition, TransitionChild } from "@headlessui/react";
 
-export const EditTaskModal = () => {
+export const UpdateTaskModal = () => {
   const { projectId } = useParams();
-  const [editTaskId, setEditTaskId] = useSearchParam("edit-task");
+  const [updateTaskId, setUpdateTaskId] = useSearchParam("update-task");
 
   const { task } = useTaskById({
     projectId: projectId,
-    taskId: editTaskId!,
+    taskId: updateTaskId!,
   });
 
   if (!task) return null;
 
   return (
     <>
-      <Transition appear show={!!editTaskId} as={Fragment}>
+      <Transition appear show={!!updateTaskId} as={Fragment}>
         <Dialog
           as="div"
           className="relative z-10"
           onClose={() => {
-            setEditTaskId(null);
+            setUpdateTaskId(null);
           }}
         >
           <TransitionChild
@@ -52,15 +52,15 @@ export const EditTaskModal = () => {
               >
                 <DialogPanel className="w-full max-w-4xl transform overflow-hidden rounded-2xl bg-white text-left align-middle shadow-xl transition-all p-16">
                   <DialogTitle as="h3" className="font-black text-4xl  my-5">
-                    Editar Tarea
+                    Actualizar Tarea
                   </DialogTitle>
 
                   <p className="text-xl font-bold">
-                    Llena el formulario y edita {""}
+                    Llena el formulario y Actualiza {""}
                     <span className="text-fuchsia-600">una tarea</span>
                   </p>
 
-                  <EditTaskForm task={task} />
+                  <UpdateTaskForm task={task} />
                 </DialogPanel>
               </TransitionChild>
             </div>

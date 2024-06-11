@@ -48,8 +48,8 @@ export const ProjectCard = ({ project }: Props) => {
                 </Link>
               </MenuItem>
               <MenuItem>
-                <Link to={`/project/edit/${project._id}`} className="block px-3 py-1 text-sm leading-6 text-gray-900">
-                  Editar Proyecto
+                <Link to={`/project/update/${project._id}`} className="block px-3 py-1 text-sm leading-6 text-gray-900">
+                  Actualizar Proyecto
                 </Link>
               </MenuItem>
               <MenuItem>

@@ -1,3 +1,2 @@
-export { 
-  CreateTaskForm
- } from './CreateTaskForm'
+export { CreateTaskForm } from "./CreateTaskForm";
+export { UpdateTaskForm } from "./UpdateTaskForm";

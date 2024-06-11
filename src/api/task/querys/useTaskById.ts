@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 
 import { TASK_QUERY_KEY } from "../task.constants";
 import { getTaskById } from "../task.service";
+import { PROJECT_QUERY_KEY } from "@api/project";
 
 interface Params {
   taskId?: string;
@@ -11,9 +12,10 @@ interface Params {
 
 export const useTaskById = ({ projectId, taskId }: Params) => {
   const task = useQuery({
-    enabled: !!projectId && !!taskId,
-    queryKey: [TASK_QUERY_KEY, taskId!],
+    queryKey: [PROJECT_QUERY_KEY, projectId, TASK_QUERY_KEY, taskId!],
     queryFn: () => getTaskById(projectId!, taskId!),
+    enabled: !!projectId && !!taskId,
+    retry: false,
     onError: () => {
       toast.error("No se pudo obtener la tarea");
     },
