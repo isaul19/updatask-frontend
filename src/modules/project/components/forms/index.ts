@@ -1,2 +1,2 @@
-export { CreateProjectForm } from "./CreateProject.form";
-export { UpdateProjectForm } from "./UpdateProject.form";
+export { CreateProjectForm } from "./CreateProjectForm";
+export { UpdateProjectForm } from "./UpdateProjectForm";

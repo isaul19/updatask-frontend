@@ -5,7 +5,7 @@ import { ReactQueryDevtools } from "react-query/devtools";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import { coreRouter } from "@core/Router.core";
+import { coreRouter } from "./Router";
 
 const queryClient = new QueryClient();
 

@@ -1,8 +1,7 @@
-import { createBrowserRouter } from "react-router-dom";
+import { Navigate, createBrowserRouter } from "react-router-dom";
 
 import { GlobalLayout } from "@core/layouts";
 
-import { DashboardPage } from "@dashboard/pages";
 import { CreateProjectPage, ListProjectPage, UpdateProjectPage, ShowProjectPage } from "@project/pages";
 import { Error404Page } from "@errors/pages";
 
@@ -12,7 +11,7 @@ export const coreRouter = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <DashboardPage />,
+        element: <Navigate to="/project" />,
       },
       {
         path: "/project",

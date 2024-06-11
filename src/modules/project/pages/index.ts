@@ -1,4 +1,4 @@
-export { CreateProjectPage } from "./CreateProject.page";
-export { ListProjectPage } from "./ListProject.page";
-export { UpdateProjectPage } from "./UpdateProject.page";
-export { ShowProjectPage } from "./ShowProject.page";
+export { CreateProjectPage } from "./CreateProjectPage";
+export { ListProjectPage } from "./ListProjectPage";
+export { UpdateProjectPage } from "./UpdateProjectPage";
+export { ShowProjectPage } from "./ShowProjectPage";
