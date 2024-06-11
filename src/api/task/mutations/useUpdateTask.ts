@@ -4,6 +4,7 @@ import { TaskDraft } from "../task.type";
 import { updateTask } from "../task.service";
 import { TASKS_QUERY_KEY, TASK_QUERY_KEY } from "../task.constants";
 import { PROJECT_QUERY_KEY } from "@api/project";
+import { toast } from "react-toastify";
 
 interface Params {
   projectId: string;
@@ -22,6 +23,8 @@ export const useUpdateTask = ({ projectId, taskId }: Params) => {
       client.invalidateQueries({
         queryKey: [PROJECT_QUERY_KEY, projectId, TASK_QUERY_KEY, taskId],
       });
+
+      toast.success("Tarea Actualizada");
     },
   });
 

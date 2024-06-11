@@ -13,7 +13,7 @@ export const useDeleteProject = (projectId: string) => {
       client.invalidateQueries({
         queryKey: [PROJECTS_QUERY_KEY],
       });
-      toast.success("Proyecto eliminado exitosamente");
+      toast.success("Proyecto Eliminado");
     },
     onError: (error) => {
       if (error instanceof AxiosError) {

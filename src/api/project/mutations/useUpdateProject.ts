@@ -18,7 +18,7 @@ export const useUpdateProject = (projectId: string) => {
       client.invalidateQueries({
         queryKey: [PROJECT_QUERY_KEY, projectId],
       });
-      toast.success("Proyecto actualizado exitosamente");
+      toast.success("Proyecto Actualizado");
     },
     onError: (error) => {
       if (error instanceof AxiosError) {

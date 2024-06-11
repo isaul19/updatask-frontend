@@ -13,7 +13,7 @@ export const useCreateProject = () => {
       client.invalidateQueries({
         queryKey: [PROJECTS_QUERY_KEY],
       });
-      toast.success("Proyecto creado exitosamente");
+      toast.success("Proyecto Creado");
     },
     onError: (error) => {
       if (error instanceof AxiosError) {
