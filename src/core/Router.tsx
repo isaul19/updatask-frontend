@@ -1,9 +1,15 @@
+/* eslint-disable react-refresh/only-export-components */
+import React from "react";
 import { Navigate, createBrowserRouter } from "react-router-dom";
 
 import { GlobalLayout } from "@core/layouts";
-
-import { CreateProjectPage, ListProjectPage, UpdateProjectPage, ShowProjectPage } from "@project/pages";
 import { Error404Page } from "@errors/pages";
+import { LazyPage } from "./components";
+
+const ListProjectPage = React.lazy(() => import("@project/pages/ListProjectPage"));
+const CreateProjectPage = React.lazy(() => import("@project/pages/CreateProjectPage"));
+const UpdateProjectPage = React.lazy(() => import("@project/pages/UpdateProjectPage"));
+const ShowProjectPage = React.lazy(() => import("@project/pages/ShowProjectPage"));
 
 export const coreRouter = createBrowserRouter([
   {
@@ -18,29 +24,19 @@ export const coreRouter = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <ListProjectPage />,
+            element: LazyPage(ListProjectPage),
           },
           {
             path: "create",
-            element: <CreateProjectPage />,
+            element: LazyPage(CreateProjectPage),
           },
           {
-            path: "show",
-            children: [
-              {
-                path: ":projectId",
-                element: <ShowProjectPage />,
-              },
-            ],
+            path: "show/:projectId",
+            element: LazyPage(ShowProjectPage),
           },
           {
-            path: "update",
-            children: [
-              {
-                path: ":projectId",
-                element: <UpdateProjectPage />,
-              },
-            ],
+            path: "update/:projectId",
+            element: LazyPage(UpdateProjectPage),
           },
         ],
       },

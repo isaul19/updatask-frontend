@@ -4,7 +4,7 @@ import { Button } from "@core/lib/shadcn/ui";
 import { UpdateProjectForm } from "@project/components/forms";
 import { useProjectById } from "@api/project";
 
-export const UpdateProjectPage = () => {
+const UpdateProjectPage = () => {
   const { projectId } = useParams();
   const { project, projectIsLoading } = useProjectById(projectId);
 
@@ -30,3 +30,5 @@ export const UpdateProjectPage = () => {
     </>
   );
 };
+
+export default UpdateProjectPage;

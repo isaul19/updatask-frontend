@@ -4,7 +4,7 @@ import { Button } from "@core/lib/shadcn/ui";
 import { useListProjects } from "@api/project";
 import { ProjectCardList } from "@project/components/ProjectCardList";
 
-export const ListProjectPage = () => {
+const ListProjectPage = () => {
   const { projects } = useListProjects();
 
   return (
@@ -22,3 +22,5 @@ export const ListProjectPage = () => {
     </>
   );
 };
+
+export default ListProjectPage;

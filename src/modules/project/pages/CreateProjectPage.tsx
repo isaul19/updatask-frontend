@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@core/lib/shadcn/ui";
 import { CreateProjectForm } from "@project/components/forms";
 
-export const CreateProjectPage = () => {
+const CreateProjectPage = () => {
   return (
     <>
       <div className="max-w-3xl mx-auto">
@@ -20,3 +20,5 @@ export const CreateProjectPage = () => {
     </>
   );
 };
+
+export default CreateProjectPage;

@@ -6,7 +6,7 @@ import { TaskCardList } from "@task/components/TaskCardList";
 import { UpdateTaskModal } from "@task/components/modals";
 import { useListTasks } from "@api/task";
 
-export const ShowProjectPage = () => {
+const ShowProjectPage = () => {
   const navigate = useNavigate();
   const { projectId } = useParams();
   const { project, projectIsLoading } = useProjectById(projectId);
@@ -33,3 +33,5 @@ export const ShowProjectPage = () => {
     </>
   );
 };
+
+export default ShowProjectPage;
