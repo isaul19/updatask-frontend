@@ -1,18 +1,18 @@
 import { Fragment } from "react";
 import { Navigate, useParams } from "react-router-dom";
+import moment from "moment";
 
 import { Dialog, DialogPanel, DialogTitle, Transition, TransitionChild } from "@headlessui/react";
-import { useTaskById } from "@api/task";
 import { useSearchParam } from "@core/hooks";
-import { UpdateTaskForm } from "../forms";
+import { useTaskById } from "@api/task";
 
-export const UpdateTaskModal = () => {
+export const ShowTaskModal = () => {
+  const [showTaskId, setShowTaskId] = useSearchParam("show-task");
   const { projectId } = useParams();
-  const [updateTaskId, setUpdateTaskId] = useSearchParam("update-task");
 
   const { task, taskIsLoading, taskIsError } = useTaskById({
-    projectId: projectId,
-    taskId: updateTaskId!,
+    taskId: showTaskId!,
+    projectId: projectId!,
   });
 
   if (taskIsLoading) return null;
@@ -21,14 +21,8 @@ export const UpdateTaskModal = () => {
 
   return (
     <>
-      <Transition appear show={!!updateTaskId} as={Fragment}>
-        <Dialog
-          as="div"
-          className="relative z-10"
-          onClose={() => {
-            setUpdateTaskId(null);
-          }}
-        >
+      <Transition appear show={!!showTaskId} as={Fragment}>
+        <Dialog as="div" className="relative z-10" onClose={() => setShowTaskId(null)}>
           <TransitionChild
             as={Fragment}
             enter="ease-out duration-300"
@@ -53,16 +47,19 @@ export const UpdateTaskModal = () => {
                 leaveTo="opacity-0 scale-95"
               >
                 <DialogPanel className="w-full max-w-4xl transform overflow-hidden rounded-2xl bg-white text-left align-middle shadow-xl transition-all p-16">
-                  <DialogTitle as="h3" className="font-black text-4xl  my-5">
-                    Actualizar Tarea
-                  </DialogTitle>
-
-                  <p className="text-xl font-bold">
-                    Llena el formulario y Actualiza {""}
-                    <span className="text-fuchsia-600">una tarea</span>
+                  <p className="text-sm text-slate-400">
+                    Agregada el: {moment(task.createdAt).format("MMMM Do YYYY, h:mm:ss a")}
                   </p>
-
-                  <UpdateTaskForm task={task} />
+                  <p className="text-sm text-slate-400">
+                    Última actualización: {moment(task.updatedAt).format("MMMM Do YYYY, h:mm:ss a")}
+                  </p>
+                  <DialogTitle as="h3" className="font-black text-4xl text-slate-600 my-5">
+                    {task.name}
+                  </DialogTitle>
+                  <p className="text-lg text-slate-500 mb-2">Descripción: {task.description}</p>
+                  <div className="my-5 space-y-3">
+                    <label className="font-bold">Estado Actual: {task.status}</label>
+                  </div>
                 </DialogPanel>
               </TransitionChild>
             </div>

@@ -14,6 +14,8 @@ export interface Task {
   description: string;
   project: string;
   status: TaskStatus;
+  createdAt: string;
+  updatedAt: string;
 }
 
 export interface TaskDraft extends Pick<Task, "description" | "name"> {}

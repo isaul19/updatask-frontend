@@ -6,10 +6,10 @@ import { useProjectById } from "@api/project";
 
 export const UpdateProjectPage = () => {
   const { projectId } = useParams();
-  const { project, projectIsError, projectIsLoading } = useProjectById(projectId);
+  const { project, projectIsLoading } = useProjectById(projectId);
 
   if (projectIsLoading) return <p>Loading...</p>;
-  if (projectIsError) return <Navigate to="/project" />;
+  if (!project) return <Navigate to="/404" />;
 
   return (
     <>
@@ -25,7 +25,7 @@ export const UpdateProjectPage = () => {
           </Link>
         </nav>
 
-        <UpdateProjectForm project={project!} />
+        <UpdateProjectForm project={project} />
       </div>
     </>
   );

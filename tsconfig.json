@@ -28,7 +28,8 @@
       "@icons/*": ["./src/assets/media/icons/*"],
       "@project/*": ["./src/modules/project/*"],
       "@task/*": ["./src/modules/task/*"],
-      "@dashboard/*": ["./src/modules/dashboard/*"]
+      "@dashboard/*": ["./src/modules/dashboard/*"],
+      "@errors/*": ["./src/modules/errors/*"]
     }
   },
   "include": ["src"],

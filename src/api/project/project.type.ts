@@ -6,6 +6,8 @@ export interface Project {
   clientName: string;
   description: string;
   tasks: string[];
+  createdAt: string;
+  updatedAt: string;
 }
 
 export interface ProjectWithTasks extends Omit<Project, "tasks"> {

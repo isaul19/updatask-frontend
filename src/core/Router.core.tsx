@@ -4,6 +4,7 @@ import { GlobalLayout } from "@core/layouts";
 
 import { DashboardPage } from "@dashboard/pages";
 import { CreateProjectPage, ListProjectPage, UpdateProjectPage, ShowProjectPage } from "@project/pages";
+import { Error404Page } from "@errors/pages";
 
 export const coreRouter = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ export const coreRouter = createBrowserRouter([
             ],
           },
         ],
+      },
+      {
+        path: "/404",
+        element: <Error404Page />,
       },
     ],
   },

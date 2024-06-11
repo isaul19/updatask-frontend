@@ -26,7 +26,7 @@ export const NavMenu = () => {
             <Link to="/profile" className="block p-2 hover:text-primary">
               Mi Perfil
             </Link>
-            <Link to="/" className="block p-2 hover:text-primary">
+            <Link to="/project" className="block p-2 hover:text-primary">
               Mis Proyectos
             </Link>
             <button className="block p-2 hover:text-primary" type="button" onClick={() => {}}>

@@ -4,7 +4,8 @@
 
 html,
 body,
-:root {
+:root,
+#root {
   @apply h-full;
 }
 

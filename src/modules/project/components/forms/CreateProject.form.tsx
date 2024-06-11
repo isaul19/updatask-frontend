@@ -23,7 +23,7 @@ export const CreateProjectForm = () => {
   return (
     <>
       <form
-        className="mt-10 bg-white shadow-lg p-10 rounded-lg flex flex-col gap-8 underline"
+        className="mt-10 bg-white shadow-lg p-10 rounded-lg flex flex-col gap-8"
         onSubmit={handleSubmit(handleCreateProject)}
         noValidate
       >

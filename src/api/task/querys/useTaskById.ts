@@ -1,9 +1,8 @@
 import { useQuery } from "react-query";
-import { toast } from "react-toastify";
 
+import { PROJECT_QUERY_KEY } from "@api/project";
 import { TASK_QUERY_KEY } from "../task.constants";
 import { getTaskById } from "../task.service";
-import { PROJECT_QUERY_KEY } from "@api/project";
 
 interface Params {
   taskId?: string;
@@ -16,16 +15,12 @@ export const useTaskById = ({ projectId, taskId }: Params) => {
     queryFn: () => getTaskById(projectId!, taskId!),
     enabled: !!projectId && !!taskId,
     retry: false,
-    onError: () => {
-      toast.error("No se pudo obtener la tarea");
-    },
   });
 
   return {
     task: task.data?.data,
-    taskIsLoading: task.isLoading,
+    taskIsLoading: task.isFetching,
     taskIsError: task.isError,
     taskIsSuccess: task.isSuccess,
-    taskIsFetching: task.isFetching,
   };
 };

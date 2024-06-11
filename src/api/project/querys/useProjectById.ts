@@ -1,5 +1,4 @@
 import { useQuery } from "react-query";
-import { toast } from "react-toastify";
 
 import { PROJECT_QUERY_KEY } from "../constants.project";
 import { getProjectById } from "../project.service";
@@ -9,9 +8,7 @@ export const useProjectById = (projectId?: string) => {
     queryKey: [PROJECT_QUERY_KEY, projectId!],
     queryFn: () => getProjectById(projectId!),
     enabled: !!projectId,
-    onError: () => {
-      toast.error("Hubo un error al obtener el proyecto");
-    },
+    retry: false,
   });
 
   return {
